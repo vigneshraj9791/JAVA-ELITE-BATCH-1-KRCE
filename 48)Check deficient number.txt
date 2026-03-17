@@ -1,0 +1,27 @@
+5_Find largest digit
+
+The largest digit is found by extracting each digit using modulo 10 and keeping track of the maximum value while reducing the number using division.
+
+Program:
+import java.util.*;
+
+public class Main {
+    public static int largestDigit(int n) {
+        int max = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            if (digit > max) {
+                max = digit;
+            }
+            n /= 10;
+        }
+        return max;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(largestDigit(n));
+    }
+}
+

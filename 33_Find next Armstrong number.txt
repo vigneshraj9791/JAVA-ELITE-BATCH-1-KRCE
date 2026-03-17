@@ -1,0 +1,21 @@
+68) Odd digit sum in range
+
+Given a range L to R, count how many numbers have their sum of digits as an odd number.
+
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int l=sc.nextInt(),r=sc.nextInt(),sum=0;
+        for(int i=l;i<=r;i++){
+            int n=i;
+            while(n>0){
+                int d=n%10;
+                if(d%2!=0) sum+=d;
+                n/=10;
+            }
+        }
+        System.out.println(sum);
+    }
+}

@@ -1,0 +1,44 @@
+78)Find Kaprekar constant (6174)
+
+Given a 4-digit number, repeatedly perform the operation of arranging its digits in descending and ascending order, subtracting the smaller from the larger, until the result reaches the Kaprekar constant 6174. Count the number of steps required.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int count = 0;
+
+        while(n != 6174){
+            int[] d = new int[4];
+            int temp = n;
+
+            for(int i = 0; i < 4; i++){
+                d[i] = temp % 10;
+                temp /= 10;
+            }
+
+            for(int i = 0; i < 4; i++){
+                for(int j = i + 1; j < 4; j++){
+                    if(d[i] > d[j]){
+                        int t = d[i];
+                        d[i] = d[j];
+                        d[j] = t;
+                    }
+                }
+            }
+
+            int asc = 0, desc = 0;
+
+            for(int i = 0; i < 4; i++){
+                asc = asc * 10 + d[i];
+                desc = desc * 10 + d[3 - i];
+            }
+
+            n = desc - asc;
+            count++;
+        }
+
+        System.out.println(count);
+    }
+}

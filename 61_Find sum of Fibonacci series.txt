@@ -1,0 +1,35 @@
+33_Find next Armstrong number:
+
+Find the next number greater than a given number whose sum of digits raised to the power of the number of digits equals the number itself (Armstrong number).
+Iterate from the next number onward, check each number using this condition, and return the first one that satisfies it.
+
+Program :
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int i = n + 1;
+        while (true) {
+            int t = i;
+            int sum = 0, count = 0;
+            while (t != 0) {
+                t /= 10;
+                count++;
+            }
+            t = i;
+            while (t != 0) {
+                int d = t % 10;
+                sum += (int)Math.pow(d, count);
+                t /= 10;
+            }
+            if (sum == i) {
+                System.out.println(i);
+                break;
+            }
+
+            i++;
+        }
+    }
+}

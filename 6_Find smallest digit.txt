@@ -1,0 +1,33 @@
+9_Check palindrome
+
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+Program:
+import java.util.*;
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x < 0) return false;
+
+        int rev = 0, rem;
+        int y = x;
+
+        while (x > 0) {
+            rem = x % 10;
+            rev = rev * 10 + rem;
+            x /= 10;
+        }
+
+        return rev == y;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+
+        Solution obj = new Solution();
+        System.out.println(obj.isPalindrome(x));
+    }
+}

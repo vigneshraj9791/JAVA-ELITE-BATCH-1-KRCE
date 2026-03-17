@@ -1,0 +1,23 @@
+3_Product of digits
+
+The product of digits of a number is obtained by multiplying each digit extracted using modulo 10 and removing digits one by one using division until the number becomes zero.
+
+Program:
+import java.util.*;
+
+public class Main {
+    public static int productOfDigits(int n) {
+        int product = 1;
+        while (n > 0) {
+            product *= (n % 10);
+            n /= 10;
+        }
+        return product;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(productOfDigits(n));
+    }
+}

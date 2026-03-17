@@ -1,0 +1,26 @@
+6_Find smallest digit
+
+The smallest digit is found by extracting each digit using modulo 10 and updating the minimum value while reducing the number using division until it becomes zero.
+
+Program:
+import java.util.*;
+
+public class Main {
+    public static int smallestDigit(int n) {
+        int min = 9;
+        while (n > 0) {
+            int digit = n % 10;
+            if (digit < min) {
+                min = digit;
+            }
+            n /= 10;
+        }
+        return min;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(smallestDigit(n));
+    }
+}

@@ -1,0 +1,16 @@
+81)Factorial trialing zeros
+
+Given a number N, find the number of trailing zeros in N! (factorial of N).
+Trailing zeros are formed by factors of 10, which come from pairs of 2 and 5.
+
+class Solution {
+    public int trailingZeroes(int n) {
+        int sum=0;
+        while(n>=5){
+            sum+=n/5;
+            n/=5;
+        }
+        return sum;
+
+    }
+}

@@ -1,0 +1,20 @@
+53)Check co-prime check
+
+Two numbers A and B are said to be Co-Prime or mutually prime if the Greatest Common Divisor of them is 1. You have been given two numbers A and B, find if they are Co-prime or not.
+
+PROGRAM:
+
+class Solution {
+    public boolean areCoPrime(int a, int b) {
+        return gcd(a, b) == 1;
+    }
+    
+    private int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}

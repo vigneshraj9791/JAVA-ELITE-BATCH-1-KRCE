@@ -1,0 +1,32 @@
+13_Replace all 0s with 1s
+
+You are given an integer n. You need to convert all zeroes of n to 1.
+
+Program:
+import java.util.*;
+
+public class Main {
+    public static int replaceZero(int n) {
+        int result = 0, place = 1;
+
+        if (n == 0) return 1;
+
+        while (n > 0) {
+            int digit = n % 10;
+            if (digit == 0) {
+                digit = 1;
+            }
+            result += digit * place;
+            place *= 10;
+            n /= 10;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(replaceZero(n));
+    }
+}

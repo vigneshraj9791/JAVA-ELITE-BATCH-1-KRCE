@@ -1,0 +1,30 @@
+57)Check if fraction is irreducible
+
+A fraction is called irreducible (or simplest form) if the numerator and denominator have no common factors other than 1.
+
+PROGRAM:
+
+import java.util.Scanner;
+
+public class Main {
+    static int gcd(int a, int b) {
+        while(b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int numerator = sc.nextInt();
+        int denominator = sc.nextInt();
+
+        if (gcd(numerator, denominator) == 1)
+            System.out.println("Irreducible Fraction");
+        else
+            System.out.println("Not an Irreducible Fraction");
+    }
+}

@@ -1,0 +1,43 @@
+76) Check Colorful number
+
+Given a number N, check whether it is a Colorful number.
+A number is colorful if the product of every possible contiguous subsequence of its digits is unique.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int temp = n, len = 0;
+        while(temp > 0){
+            len++;
+            temp /= 10;
+        }
+
+        int[] arr = new int[len];
+        temp = n;
+        for(int i = len - 1; i >= 0; i--){
+            arr[i] = temp % 10;
+            temp /= 10;
+        }
+
+        int[] prod = new int[100];
+        int pcount = 0;
+        int flag = 1;
+
+        for(int i = 0; i < len; i++){
+            int p = 1;
+            for(int j = i; j < len; j++){
+                p *= arr[j];
+                for(int k = 0; k < pcount; k++){
+                    if(prod[k] == p) flag = 0;
+                }
+                prod[pcount++] = p;
+            }
+        }
+
+        if(flag == 1) System.out.println("Yes");
+        else System.out.println("No");
+    }
+}

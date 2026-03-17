@@ -1,0 +1,25 @@
+65) Count Armstrong in range
+
+Given two integers L and R, count how many numbers in the range are Armstrong numbers.
+An Armstrong number is a number equal to the sum of its digits each raised to the power of the number of digits.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int l=sc.nextInt(),r=sc.nextInt(),count=0;
+        for(int i=l;i<=r;i++){
+            int n=i,temp=i,d=0,sum=0;
+            while(temp>0){ d++; temp/=10; }
+            temp=i;
+            while(temp>0){
+                int x=temp%10,p=1;
+                for(int j=0;j<d;j++) p*=x;
+                sum+=p;
+                temp/=10;
+            }
+            if(sum==i) count++;
+        }
+        System.out.println(count);
+    }
+}

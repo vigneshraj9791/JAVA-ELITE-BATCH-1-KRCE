@@ -1,0 +1,43 @@
+35_Count Strong numbers in range:
+
+In mathematics, a strong number is a number whose sum of the factorial of its digits is equal to the number itself. The task is to print all strong numbers within a given range in Java
+
+Program :
+
+import java.util.*;
+
+public class Main {
+
+    static int factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+
+        int count = 0;
+
+        for (int i = start; i <= end; i++) {
+            int temp = i;
+            int sum = 0;
+
+            while (temp > 0) {
+                int digit = temp % 10;
+                sum += factorial(digit);
+                temp /= 10;
+            }
+
+            if (sum == i) {
+                count++;
+            }
+        }
+
+        System.out.println(count);
+    }
+}

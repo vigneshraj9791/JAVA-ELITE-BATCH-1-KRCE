@@ -1,0 +1,28 @@
+75)Check Emirp number
+
+Given a number N, check whether it is an Emirp number.
+An emirp number is a prime number whose reverse is a different prime number.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt(),rev=0,temp=n;
+
+        while(temp>0){
+            rev=rev*10+temp%10;
+            temp/=10;
+        }
+
+        int f1=1,f2=1;
+
+        if(n<2) f1=0;
+        for(int i=2;i*i<=n;i++) if(n%i==0) f1=0;
+
+        if(rev<2) f2=0;
+        for(int i=2;i*i<=rev;i++) if(rev%i==0) f2=0;
+
+        if(f1==1 && f2==1 && n!=rev) System.out.println("Yes");
+        else System.out.println("No");
+    }
+}

@@ -1,0 +1,31 @@
+18_Check if digits are decreasing:
+
+Given a number N, the task is to check whether the digits of the number are decreasing.
+
+Program:
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int prev = -1; 
+        boolean flag = true;
+
+        while (n > 0) {
+            int current = n % 10;
+
+            if (prev != -1 && current <= prev) {
+                flag = false;
+                break;
+            }
+
+            prev = current;
+            n /= 10;
+        }
+
+        System.out.println(flag ? "true" : "false");
+    }
+}

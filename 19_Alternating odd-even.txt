@@ -1,0 +1,30 @@
+17_Check if digits are increasing
+
+Given a number N, the task is to check whether the digits of the number are increasing.
+
+Program :
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int prev = 10; // larger than any digit
+        boolean flag = true;
+
+        while (n > 0) {
+            int current = n % 10;
+
+            if (current >= prev) {
+                flag = false;
+                break;
+            }
+
+            prev = current;
+            n /= 10;
+        }
+
+        System.out.println(flag ? "true" : "false");
+    }
+}

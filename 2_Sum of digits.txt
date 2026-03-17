@@ -1,0 +1,28 @@
+4_Count even and odd digits
+
+A certain number is given and the task is to count even digits and odd digits of the number and also even digits are present even a number of times and, similarly, for odd numbers. 
+
+Program:
+import java.util.*;
+
+public class Main {
+    public static void countEvenOdd(int n) {
+        int even = 0, odd = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            if (digit % 2 == 0) {
+                even++;
+            } else {
+                odd++;
+            }
+            n /= 10;
+        }
+        System.out.println(even + " " + odd);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        countEvenOdd(n);
+    }
+}

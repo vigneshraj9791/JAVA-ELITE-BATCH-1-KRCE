@@ -1,0 +1,29 @@
+48)Check deficient number
+
+A number n is said to be Deficient Number if sum of all the divisors of the number denoted by divisorsSum(n) is less than twice the value of the number n. And the difference between these two values is called the deficiency.
+Mathematically, if below condition holds the number is said to be Deficient: 
+ 
+
+divisorsSum(n) < 2 * n
+deficiency = (2 * n) - divisorsSum(n)
+
+The first few Deficient Numbers are:
+1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19 .....
+Given a number n, our task is to find if this number is Deficient number or not. 
+
+PROGRAM:
+
+class Solution {
+    public boolean isDeficient(int n) {
+        int sum = 0;
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                sum += i;
+                if (i != n / i) {
+                    sum += n / i;
+                }
+            }
+        }
+        return sum < 2 * n;
+    }
+}

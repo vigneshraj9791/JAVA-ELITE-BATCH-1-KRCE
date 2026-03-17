@@ -1,0 +1,39 @@
+77)Check Kaprekar number
+
+Given a number N, check whether it is a Kaprekar number.
+A number is Kaprekar if its square can be split into two parts whose sum equals the original number.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int sq = n * n;
+        int temp = sq, digits = 0;
+
+        while(temp > 0){
+            digits++;
+            temp /= 10;
+        }
+
+        int pow = 1;
+        for(int i = 1; i < digits; i++) pow *= 10;
+
+        int flag = 0;
+
+        while(pow > 1){
+            int left = sq / pow;
+            int right = sq % pow;
+
+            if(right != 0 && left + right == n){
+                flag = 1;
+                break;
+            }
+            pow /= 10;
+        }
+
+        if(flag == 1) System.out.println("Yes");
+        else System.out.println("No");
+    }
+}

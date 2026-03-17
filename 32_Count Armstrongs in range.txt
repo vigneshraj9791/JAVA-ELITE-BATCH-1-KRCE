@@ -1,0 +1,21 @@
+71) Check Automorphic number
+
+Given a number N, check whether it is an Automorphic number.
+A number is automorphic if its square ends with the same digits as the number itself.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int sq=n*n,temp=n;
+        int flag=1;
+        while(temp>0){
+            if(temp%10!=sq%10){ flag=0; break; }
+            temp/=10;
+            sq/=10;
+        }
+        if(flag==1) System.out.println("Yes");
+        else System.out.println("No");
+    }
+}

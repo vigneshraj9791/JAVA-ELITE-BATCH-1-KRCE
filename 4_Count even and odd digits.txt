@@ -1,0 +1,18 @@
+51)Find GCD of two numbers
+
+Given two positive integers a and b, find GCD of a and b.
+
+Note: Don't use the inbuilt gcd function
+
+PROGRAM:
+
+class Solution {
+    public int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}

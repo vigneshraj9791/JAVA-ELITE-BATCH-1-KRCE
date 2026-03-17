@@ -1,0 +1,45 @@
+63 ) Length of Longest Fibonacci-like Subsequence
+
+A sequence is called Fibonacci-like if:
+
+It has at least 3 elements.
+
+Every element is the sum of the previous two elements.
+i.e.,
+x[i] + x[i+1] = x[i+2]
+
+You are given a strictly increasing array of positive integers.
+Your task is to find the length of the longest Fibonacci-like subsequence.
+
+If no such subsequence exists, return 0.
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+
+        int maxLen = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int a = arr[i], b = arr[j], len = 2;
+
+                for (int k = j + 1; k < n; k++) {
+                    if (arr[k] == a + b) {
+                        len++;
+                        a = b;
+                        b = arr[k];
+                    }
+                }
+                if (len > 2) maxLen = Math.max(maxLen, len);
+            }
+        }
+        System.out.println(maxLen);
+    }
+}

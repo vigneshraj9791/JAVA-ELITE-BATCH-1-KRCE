@@ -1,0 +1,27 @@
+72) Check Fascinating number
+
+Given a number N, check whether it is a Fascinating number.
+A number is fascinating if the concatenation of N, 2N, and 3N contains all digits from 1 to 9 exactly once.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] c=new int[10];
+        int a=n,b=2*n,d=3*n;
+
+        while(a>0){ c[a%10]++; a/=10; }
+        while(b>0){ c[b%10]++; b/=10; }
+        while(d>0){ c[d%10]++; d/=10; }
+
+        int flag=1;
+        for(int i=1;i<=9;i++){
+            if(c[i]!=1) flag=0;
+        }
+        if(c[0]!=0) flag=0;
+
+        if(flag==1) System.out.println("Yes");
+        else System.out.println("No");
+    }
+}

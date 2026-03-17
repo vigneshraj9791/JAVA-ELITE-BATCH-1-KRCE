@@ -1,0 +1,27 @@
+7_Find second largest digit
+
+The second largest digit is found by tracking the largest and second largest distinct digits while extracting each digit using modulo 10 and updating values accordingly.
+
+Program:
+import java.util.*;
+public class SecondLargestDigit
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int rem=0;
+		int largest=Integer.MIN_VALUE;
+		int seclarge=Integer.MIN_VALUE;
+		while(n>0){
+		    rem=n%10;
+		    if(rem>largest){
+		        seclarge=largest;
+		        largest=rem;
+		    }else if(rem<largest&&rem>seclarge){
+		        seclarge=rem;
+		    }
+		    n/=10;
+		}
+		System.out.println(seclarge);
+	}
+}

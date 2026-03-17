@@ -1,0 +1,20 @@
+70) Max digit sum in range
+
+Given a range L to R, find the maximum sum of digits among all numbers in the range.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int l=sc.nextInt(),r=sc.nextInt(),max=0;
+        for(int i=l;i<=r;i++){
+            int n=i,sum=0;
+            while(n>0){
+                sum+=n%10;
+                n/=10;
+            }
+            if(sum>max) max=sum;
+        }
+        System.out.println(max);
+    }
+}

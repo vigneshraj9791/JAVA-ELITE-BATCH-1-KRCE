@@ -1,0 +1,38 @@
+16_Check if two numbers are rotations
+
+Two numbers are rotations if repeatedly moving the last digit of one number to the front eventually makes it equal to the other number.
+
+Program:
+import java.util.*;
+
+public class Main {
+    public static int countDigits(int n) {
+        int count = 0;
+        while (n > 0) {
+            count++;
+            n /= 10;
+        }
+        return count;
+    }
+
+    public static boolean isRotation(int a, int b) {
+        int digits = countDigits(a);
+        if (digits != countDigits(b)) return false;
+
+        int pow = (int)Math.pow(10, digits - 1);
+
+        for (int i = 0; i < digits; i++) {
+            int last = a % 10;
+            a = (last * pow) + (a / 10);
+            if (a == b) return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println(isRotation(a, b));
+    }
+}

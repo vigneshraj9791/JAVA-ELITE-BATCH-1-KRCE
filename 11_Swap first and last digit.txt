@@ -1,0 +1,30 @@
+60)Check if Fibonacci
+
+Check if a given number N is the Fibonacci number. A Fibonacci number is a number that occurs in the Fibonacci series.
+
+PROGRAM:
+import java.util.*;
+
+public class Main {
+
+    static boolean isPerfectSquare(long x) {
+        long s = (long)Math.sqrt(x);
+        return s * s == x;
+    }
+
+    static boolean isFibonacci(int n) {
+        long x = 5L * n * n + 4;
+        long y = 5L * n * n - 4;
+        return isPerfectSquare(x) || isPerfectSquare(y);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        if(isFibonacci(n))
+            System.out.println("Fibonacci Number");
+        else
+            System.out.println("Not a Fibonacci Number");
+    }
+}

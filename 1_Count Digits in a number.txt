@@ -1,0 +1,24 @@
+49)Print prime factors
+
+Given a number n. Find its unique prime factors in increasing order
+
+PROGRAM:
+class Solution {
+    public static ArrayList<Integer> primeFac(int N) {
+        ArrayList<Integer>list = new ArrayList<>();
+        for(int i=2;i<=Math.sqrt(N);i++){
+            if(N%i==0){
+                
+                list.add(i);
+                while(N%i==0){
+                    N/=i;
+                }
+            }
+        }
+        if(N>1){
+            list.add(N);
+            
+        }// code here
+        return list;
+    }
+}

@@ -1,0 +1,21 @@
+56)Reduce fraction to simplest form
+
+Given two integers x and y and where x is divisible by y. It can be represented in the form of a fraction x/y. The task is to reduce the fraction to its lowest form.
+
+PROGRAM:
+
+class Solution {
+    public int[] reduceFraction(int x, int y) {
+        int gcd = gcd(x, y);
+        return new int[]{x / gcd, y / gcd};
+    }
+    
+    private int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}

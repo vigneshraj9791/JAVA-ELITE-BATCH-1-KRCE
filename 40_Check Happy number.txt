@@ -1,0 +1,29 @@
+19_Alternating odd-even:
+
+Given a number N. The task is to find the largest and the smallest digit of the number.
+
+Program : 
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        boolean flag = true;
+
+        while (n > 9) { 
+            int current = n % 10;
+            int previous = (n / 10) % 10;
+
+            if ((current % 2) == (previous % 2)) {
+                flag = false;
+                break;
+            }
+
+            n /= 10;
+        }
+
+        System.out.println(flag ? "true" : "false");
+    }
+}

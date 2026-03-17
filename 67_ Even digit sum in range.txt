@@ -1,0 +1,20 @@
+52)Find LCM of two numbers
+Given two integers a and b, You have to compute their LCM and GCD and return an array containing their LCM and GCD.
+
+PROGRAM:
+
+class Solution {
+    public long lcm(int a, int b) {
+        int gcd = gcd(a, b);
+        return (long) a * b / gcd;
+    }
+    
+    private int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}

@@ -1,0 +1,16 @@
+2_Sum of digits
+
+Given a positive number n. Find the sum of all the digits of n.
+
+Program:
+class Solution {
+    static int sumOfDigits(int n) {
+        int sum=0;
+        while(n>0){
+            int rem=n%10;
+            sum+=rem;
+            n/=10;;
+        }
+        return sum;
+    }
+}

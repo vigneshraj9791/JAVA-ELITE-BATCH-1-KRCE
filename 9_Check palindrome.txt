@@ -1,0 +1,28 @@
+14_Move all 0s to end of number
+
+Move all zeros to the end by shifting non-zero elements forward while maintaining their order, and then filling the remaining positions with zeros.
+
+Program:
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int count=0;
+        int pow=1;
+        int res=0;
+        while(a>0){
+            int rem=a%10;
+            if(rem==0){
+                count++;
+            }else{
+                res+=rem*pow;
+                pow*=10;
+            }
+            a/=10;
+        }
+        int s=res*(int)Math.pow(10,count);
+        System.out.println(s);
+        
+    }
+}
