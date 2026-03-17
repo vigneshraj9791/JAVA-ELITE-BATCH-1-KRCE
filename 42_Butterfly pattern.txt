@@ -1,0 +1,29 @@
+Zigzag number
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter number of columns: ");
+        int cols = sc.nextInt();
+        int num = 1;
+        for (int i = 1; i <= rows; i++) {
+            int start = num;
+            if (i % 2 == 1) {
+                for (int j = 1; j <= cols; j++) {
+                    System.out.print(num + "\t");
+                    num++;
+                }
+            } else {
+                int temp = num + cols - 1;
+                for (int j = 1; j <= cols; j++) {
+                    System.out.print(temp + "\t");
+                    temp--;
+                }
+                num += cols;
+            }
+            System.out.println();
+        }
+    }
+}
